@@ -240,13 +240,11 @@ export default function Hero() {
       {/* Amber left accent rail */}
       <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-amber-500 z-10" />
 
-      {/* Floor surface — full width so both columns share the same background */}
+      {/* Floor surface — spans full section width, no column boundary */}
       <div
         style={{
           position: 'absolute',
-          bottom: 0,
-          left: 0,
-          right: 0,
+          bottom: 0, left: 0, right: 0,
           height: '80px',
           background: 'linear-gradient(to top, #f0e8dc 0%, #f0e8dc 60%, transparent 100%)',
           borderTop: '2px solid #d4bfa0',
@@ -254,96 +252,94 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-8 sm:px-12 lg:px-20 h-full">
-        <div className="grid lg:grid-cols-2 items-center" style={{ minHeight: '62vh' }}>
-
-          {/* LEFT — text */}
-          <div className="py-12 lg:py-16">
-            <h1
-              className="font-black leading-[1.0] tracking-tight text-stone-900"
-              style={{
-                fontSize: 'clamp(2.8rem, 7vw, 5.5rem)',
-                opacity: mounted ? 1 : 0,
-                transform: mounted ? 'none' : 'translateY(16px)',
-                transition: 'opacity 0.6s ease 0.1s, transform 0.6s ease 0.1s',
-              }}
-            >
-              Premium
-              <br />
-              <span
-                className="text-amber-500 block"
-                style={{
-                  opacity: wordVisible ? 1 : 0,
-                  transform: wordVisible ? 'translateY(0)' : 'translateY(8px)',
-                  transition: 'opacity 0.25s ease, transform 0.25s ease',
-                }}
-              >
-                {WORDS[wordIdx]}
-              </span>
-              Flooring.
-            </h1>
-
-            <p
-              className="text-stone-500 text-lg mt-6 mb-8 max-w-md leading-relaxed"
-              style={{
-                opacity: mounted ? 1 : 0,
-                transition: 'opacity 0.6s ease 0.3s',
-              }}
-            >
-              4,000+ products for homes, businesses, contractors, hospitals, and schools.
-              Serving Chicagoland from our Lombard showroom.
-            </p>
-
-            <div
-              className="flex flex-wrap gap-3"
-              style={{ opacity: mounted ? 1 : 0, transition: 'opacity 0.6s ease 0.42s' }}
-            >
-              <Link href="/shop" className="btn-primary text-base gap-2 group rounded-lg">
-                Shop All Flooring
-                <span className="group-hover:translate-x-0.5 transition-transform">→</span>
-              </Link>
-              <a href="tel:7082995189" className="btn-outline text-base gap-2 rounded-lg">
-                <PhoneIcon className="w-4 h-4" />
-                (708) 299-5189
-              </a>
-            </div>
-
-            {/* Stats */}
-            <div
-              className="flex flex-wrap gap-10 mt-10 pt-8 border-t border-stone-200"
-              style={{ opacity: mounted ? 1 : 0, transition: 'opacity 0.6s ease 0.58s' }}
-            >
-              {[
-                { value: '4,000+', label: 'Products' },
-                { value: '6', label: 'Categories' },
-                { value: '1', label: 'Lombard Showroom' },
-              ].map(s => (
-                <div key={s.label}>
-                  <div className="text-3xl font-black text-stone-900">{s.value}</div>
-                  <div className="text-stone-400 text-sm mt-0.5">{s.label}</div>
-                </div>
-              ))}
-            </div>
+      {/* RIGHT: absolutely positioned — no grid, no column boundary line */}
+      <div
+        className="hidden lg:block"
+        style={{
+          position: 'absolute',
+          top: 0, bottom: 0, left: '50%', right: 0,
+          zIndex: 2,
+          opacity: mounted ? 1 : 0,
+          transition: 'opacity 0.8s ease 0.5s',
+        }}
+      >
+        <div style={{ position: 'relative', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <div style={{ width: '100%', maxWidth: '420px', padding: '0 8px' }}>
+            <FlipBoard />
           </div>
+          <WorkerWalking />
+          <WorkerKneeling style={{ bottom: '80px', left: '20%' }} />
+          <WorkerSweeping />
+        </div>
+      </div>
 
-          {/* RIGHT — airport flip tile board + workers */}
-          <div
-            className="hidden lg:flex flex-col items-center justify-center relative"
+      {/* LEFT: text — normal flow, constrained to left half on desktop */}
+      <div
+        className="relative z-10 max-w-7xl mx-auto px-8 sm:px-12 lg:px-20"
+        style={{ minHeight: '62vh', display: 'flex', alignItems: 'center' }}
+      >
+        <div className="py-12 lg:py-16 w-full lg:w-1/2">
+          <h1
+            className="font-black leading-[1.0] tracking-tight text-stone-900"
             style={{
-              minHeight: '62vh',
+              fontSize: 'clamp(2.8rem, 7vw, 5.5rem)',
               opacity: mounted ? 1 : 0,
-              transition: 'opacity 0.8s ease 0.5s',
+              transform: mounted ? 'none' : 'translateY(16px)',
+              transition: 'opacity 0.6s ease 0.1s, transform 0.6s ease 0.1s',
             }}
           >
-            {/* Tile board */}
-            <div style={{ width: '100%', maxWidth: '420px', padding: '0 8px' }}>
-              <FlipBoard />
-            </div>
+            Premium
+            <br />
+            <span
+              className="text-amber-500 block"
+              style={{
+                opacity: wordVisible ? 1 : 0,
+                transform: wordVisible ? 'translateY(0)' : 'translateY(8px)',
+                transition: 'opacity 0.25s ease, transform 0.25s ease',
+              }}
+            >
+              {WORDS[wordIdx]}
+            </span>
+            Flooring.
+          </h1>
 
-            {/* Workers */}
-            <WorkerWalking />
-            <WorkerKneeling style={{ bottom: '80px', left: '20%' }} />
-            <WorkerSweeping />
+          <p
+            className="text-stone-500 text-lg mt-6 mb-8 max-w-md leading-relaxed"
+            style={{ opacity: mounted ? 1 : 0, transition: 'opacity 0.6s ease 0.3s' }}
+          >
+            4,000+ products for homes, businesses, contractors, hospitals, and schools.
+            Serving Chicagoland from our Lombard showroom.
+          </p>
+
+          <div
+            className="flex flex-wrap gap-3"
+            style={{ opacity: mounted ? 1 : 0, transition: 'opacity 0.6s ease 0.42s' }}
+          >
+            <Link href="/shop" className="btn-primary text-base gap-2 group rounded-lg">
+              Shop All Flooring
+              <span className="group-hover:translate-x-0.5 transition-transform">→</span>
+            </Link>
+            <a href="tel:7082995189" className="btn-outline text-base gap-2 rounded-lg">
+              <PhoneIcon className="w-4 h-4" />
+              (708) 299-5189
+            </a>
+          </div>
+
+          {/* Stats */}
+          <div
+            className="flex flex-wrap gap-10 mt-10 pt-8 border-t border-stone-200"
+            style={{ opacity: mounted ? 1 : 0, transition: 'opacity 0.6s ease 0.58s' }}
+          >
+            {[
+              { value: '4,000+', label: 'Products' },
+              { value: '6', label: 'Categories' },
+              { value: '1', label: 'Lombard Showroom' },
+            ].map(s => (
+              <div key={s.label}>
+                <div className="text-3xl font-black text-stone-900">{s.value}</div>
+                <div className="text-stone-400 text-sm mt-0.5">{s.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
