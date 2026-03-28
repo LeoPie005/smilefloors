@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.lafloorcenter.com)",
+      "WebFetch(domain:smilefloors.com)",
+      "Bash(npx create-next-app@latest . --typescript=false --tailwind --eslint --app --src-dir=false --import-alias=\"@/*\" --yes)"
+    ]
+  }
+}
