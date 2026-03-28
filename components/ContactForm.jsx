@@ -64,31 +64,31 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} className="space-y-5">
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
-          <label className="form-label">Full Name *</label>
-          <input type="text" name="name" value={form.name} onChange={handleChange} required placeholder="John Smith" className="form-input rounded-lg" />
+          <label htmlFor="cf-name" className="form-label">Full Name *</label>
+          <input id="cf-name" type="text" name="name" value={form.name} onChange={handleChange} required placeholder="John Smith" className="form-input rounded-lg" autoComplete="name" />
         </div>
         <div>
-          <label className="form-label">Email *</label>
-          <input type="email" name="email" value={form.email} onChange={handleChange} required placeholder="john@example.com" className="form-input rounded-lg" />
+          <label htmlFor="cf-email" className="form-label">Email *</label>
+          <input id="cf-email" type="email" name="email" value={form.email} onChange={handleChange} required placeholder="john@example.com" className="form-input rounded-lg" autoComplete="email" />
         </div>
       </div>
 
       <div>
-        <label className="form-label">Phone</label>
-        <input type="tel" name="phone" value={form.phone} onChange={handleChange} placeholder="(708) 555-0100" className="form-input rounded-lg" />
+        <label htmlFor="cf-phone" className="form-label">Phone</label>
+        <input id="cf-phone" type="tel" name="phone" value={form.phone} onChange={handleChange} placeholder="(708) 555-0100" className="form-input rounded-lg" autoComplete="tel" />
       </div>
 
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
-          <label className="form-label">Project Type</label>
-          <select name="projectType" value={form.projectType} onChange={handleChange} className="form-input rounded-lg">
+          <label htmlFor="cf-projectType" className="form-label">Project Type</label>
+          <select id="cf-projectType" name="projectType" value={form.projectType} onChange={handleChange} className="form-input rounded-lg">
             <option value="">Select type...</option>
             {PROJECT_TYPES.map(t => <option key={t} value={t}>{t}</option>)}
           </select>
         </div>
         <div>
-          <label className="form-label">Flooring Interest</label>
-          <select name="flooringType" value={form.flooringType} onChange={handleChange} className="form-input rounded-lg">
+          <label htmlFor="cf-flooringType" className="form-label">Flooring Interest</label>
+          <select id="cf-flooringType" name="flooringType" value={form.flooringType} onChange={handleChange} className="form-input rounded-lg">
             <option value="">Select flooring...</option>
             {FLOORING_TYPES.map(t => <option key={t} value={t}>{t}</option>)}
           </select>
@@ -97,12 +97,12 @@ export default function ContactForm() {
 
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
-          <label className="form-label">Approx. Square Footage</label>
-          <input type="text" name="squareFootage" value={form.squareFootage} onChange={handleChange} placeholder="e.g. 500 sq ft" className="form-input rounded-lg" />
+          <label htmlFor="cf-sqft" className="form-label">Approx. Square Footage</label>
+          <input id="cf-sqft" type="text" name="squareFootage" value={form.squareFootage} onChange={handleChange} placeholder="e.g. 500 sq ft" className="form-input rounded-lg" />
         </div>
         <div>
-          <label className="form-label">Timeline</label>
-          <select name="timeline" value={form.timeline} onChange={handleChange} className="form-input rounded-lg">
+          <label htmlFor="cf-timeline" className="form-label">Timeline</label>
+          <select id="cf-timeline" name="timeline" value={form.timeline} onChange={handleChange} className="form-input rounded-lg">
             <option value="">Select timeline...</option>
             <option value="ASAP">ASAP</option>
             <option value="Within 1 month">Within 1 month</option>
@@ -114,8 +114,8 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label className="form-label">Message</label>
-        <textarea name="message" value={form.message} onChange={handleChange} rows={4} placeholder="Tell us about your project..." className="form-input rounded-lg resize-none" />
+        <label htmlFor="cf-message" className="form-label">Message</label>
+        <textarea id="cf-message" name="message" value={form.message} onChange={handleChange} rows={4} placeholder="Tell us about your project..." className="form-input rounded-lg resize-none" />
       </div>
 
       {errorMsg && (

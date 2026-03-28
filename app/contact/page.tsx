@@ -4,8 +4,22 @@ import { PhoneIcon, EnvelopeIcon, MapPinIcon, ClockIcon } from '@heroicons/react
 import { AnimateIn } from '@/components/AnimateIn';
 
 export const metadata: Metadata = {
-  title: 'Contact Us',
-  description: 'Get in touch with Smile Floors in Lombard, IL. Request a free flooring quote or ask a question. Call (708) 299-5189.',
+  title: 'Contact Us — Free Flooring Quote',
+  description:
+    'Contact Smile Floors in Lombard, IL for a free flooring quote. Call (708) 299-5189, email Shaw@smilefloorsusa.com, or visit our showroom at 1218 S Garfield St, Lombard, IL 60148. Mon–Fri 8 AM–5 PM.',
+  keywords: [
+    'flooring quote Lombard IL',
+    'free flooring estimate Chicagoland',
+    'contact Smile Floors',
+    'flooring showroom appointment Lombard',
+    'flooring contractor quote DuPage County',
+  ],
+  alternates: { canonical: '/contact' },
+  openGraph: {
+    title: 'Contact Smile Floors | Free Quote — Lombard, IL',
+    description: 'Get a free flooring quote. Call (708) 299-5189 or visit 1218 S Garfield St, Lombard, IL. Mon–Fri 8 AM–5 PM.',
+    url: '/contact',
+  },
 };
 
 export default function ContactPage() {

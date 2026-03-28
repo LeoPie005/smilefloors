@@ -6,8 +6,22 @@ import QuoteBanner from '@/components/QuoteBanner';
 import { AnimateIn } from '@/components/AnimateIn';
 
 export const metadata: Metadata = {
-  title: 'About Us',
-  description: 'Learn about Smile Floors — your trusted flooring specialists in Lombard, IL.',
+  title: 'About Us — Lombard\'s Premier Flooring Store',
+  description:
+    'Learn about Smile Floors — Lombard\'s premier flooring destination. 4,000+ products, expert guidance, honest pricing. Serving homeowners, contractors, builders, hospitals, and schools across Chicagoland. Visit us at 1218 S Garfield St, Lombard, IL 60148.',
+  keywords: [
+    'about Smile Floors',
+    'flooring store Lombard IL history',
+    'local flooring company Chicagoland',
+    'flooring showroom DuPage County',
+    'hardwood tile vinyl flooring experts Illinois',
+  ],
+  alternates: { canonical: '/about' },
+  openGraph: {
+    title: 'About Smile Floors | Lombard, IL Flooring Showroom',
+    description: 'Lombard\'s premier flooring destination. 4,000+ products. Honest guidance. Serving all of Chicagoland.',
+    url: '/about',
+  },
 };
 
 export default function AboutPage() {

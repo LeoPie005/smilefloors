@@ -105,7 +105,7 @@ function WorkerWalking() {
     <div
       style={{
         position: 'absolute',
-        bottom: '78px',
+        bottom: '80px',
         left: 0,
         width: '100%',
         height: '70px',
@@ -188,7 +188,7 @@ function WorkerSweeping() {
     <div
       style={{
         position: 'absolute',
-        bottom: '78px',
+        bottom: '80px',
         right: '12%',
         pointerEvents: 'none',
         animation: 'sweepBob 2s ease-in-out infinite',
@@ -331,8 +331,8 @@ export default function Hero() {
               style={{
                 position: 'absolute',
                 bottom: 0,
-                left: '-5%',
-                right: '-5%',
+                left: 0,
+                right: 0,
                 height: '80px',
                 background: 'linear-gradient(to top, #f0e8dc 0%, #f0e8dc 60%, transparent 100%)',
                 borderTop: '2px solid #d4bfa0',
@@ -341,7 +341,7 @@ export default function Hero() {
 
             {/* Workers */}
             <WorkerWalking />
-            <WorkerKneeling style={{ bottom: '78px', left: '20%' }} />
+            <WorkerKneeling style={{ bottom: '80px', left: '20%' }} />
             <WorkerSweeping />
           </div>
         </div>
