@@ -240,6 +240,20 @@ export default function Hero() {
       {/* Amber left accent rail */}
       <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-amber-500 z-10" />
 
+      {/* Floor surface — full width so both columns share the same background */}
+      <div
+        style={{
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          height: '80px',
+          background: 'linear-gradient(to top, #f0e8dc 0%, #f0e8dc 60%, transparent 100%)',
+          borderTop: '2px solid #d4bfa0',
+          zIndex: 1,
+        }}
+      />
+
       <div className="relative z-10 max-w-7xl mx-auto px-8 sm:px-12 lg:px-20 h-full">
         <div className="grid lg:grid-cols-2 items-center" style={{ minHeight: '62vh' }}>
 
@@ -325,19 +339,6 @@ export default function Hero() {
             <div style={{ width: '100%', maxWidth: '420px', padding: '0 8px' }}>
               <FlipBoard />
             </div>
-
-            {/* Floor surface line */}
-            <div
-              style={{
-                position: 'absolute',
-                bottom: 0,
-                left: 0,
-                right: 0,
-                height: '80px',
-                background: 'linear-gradient(to top, #f0e8dc 0%, #f0e8dc 60%, transparent 100%)',
-                borderTop: '2px solid #d4bfa0',
-              }}
-            />
 
             {/* Workers */}
             <WorkerWalking />
